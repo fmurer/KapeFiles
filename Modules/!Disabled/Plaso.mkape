@@ -3,6 +3,7 @@ Category: Timeline
 Author: Mark Hallman
 Version: 1
 Id: b9f74cd7-b80d-4a5c-8381-6e260ffffdf5
+BinaryUrl: https://github.com/log2timeline/plaso/releases
 ExportFormat: csv
 Processors:
     -
@@ -13,7 +14,7 @@ Processors:
 #########
 # The Plaso executables are accessed via a symbolic link from the kape/bin folder to the plaso folder.
 # mklink /D <kape/plaso folder> <path to plaso dir>
-# Example:  mklink /D c:\kape\bin\plaso c:\plaso
+# Example:  mklink /D c:\KAPE\Modules\bin\Plaso c:\plaso
 #
 # This module runs against a forensic image (E01, dd) or a folder structure.  Most common use will be
 # against a folder structure. vhdx and vhd files will need to be mounted before running this module
