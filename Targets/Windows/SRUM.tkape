@@ -1,0 +1,16 @@
+Description: System Resource Usage Monitor (SRUM) Data
+Author: Mark Hallman
+Version: 1.0
+Id: 9858f1fc-5e22-46a0-8bfd-c821ac9b4a13
+RecreateDirectories: True
+Targets:
+    -
+        Name: SRUM
+        Category: Execution
+        Path: C:\Windows\System32\SRU\
+        Recursive: True
+    -
+        Name: SRUM
+        Category: Execution
+        Path: C:\Windows.old\Windows\System32\SRU\
+        Recursive: True
