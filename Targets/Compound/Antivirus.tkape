@@ -1,8 +1,8 @@
 Description: Antivirus
 Author: Andrew Rathbun
-Version: 1.1
+Version: 1.2
 Id: 280c6a63-f6ab-438a-b40b-ca42fa78315f
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
     -
         Name: Avast
@@ -24,10 +24,14 @@ Targets:
         Name: ComboFix
         Category: Antivirus
         Path: ComboFix.tkape
-    -        
+    -
         Name: Cybereason
         Category: Antivirus
         Path: Cybereason.tkape
+    -
+        Name: Emsisoft
+        Category: Antivirus
+        Path: Emsisoft.tkape
     -
         Name: ESET
         Category: Antivirus
@@ -56,6 +60,10 @@ Targets:
         Name: RogueKiller
         Category: Antivirus
         Path: RogueKiller.tkape
+    -
+        Name: SecureAge
+        Category: Antivirus
+        Path: SecureAge.tkape
     -
         Name: SentinelOne
         Category: Antivirus
@@ -93,5 +101,6 @@ Targets:
         Category: Antivirus
         Path: WindowsDefender.tkape
 
-# For those looking to contribute to this list, check here for ideas: https://en.wikipedia.org/wiki/Comparison_of_antivirus_software. 
+# Documentation
+# For those looking to contribute to this list, check here for ideas: https://en.wikipedia.org/wiki/Comparison_of_antivirus_software.
 # Install one of the applications not covered above and find where useful information is stored. If useful information can be located, make an individual Target for it and place in the appropriate folder. Then, include that Target in the appropriate Compound Target.

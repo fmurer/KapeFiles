@@ -8,11 +8,11 @@ ExportFormat: txt
 Processors:
     -
         Executable: EDD\EDDv300.exe
-        CommandLine:  /batch >> %destinationDirectory%
+        CommandLine: /batch >> %destinationDirectory%
         ExportFormat: txt
         ExportFile: EDD.txt
 
-##
-## Create a folder "EDD" within the "Modules\bin" KAPE folder
-## Place "EDDv300.exe", "EDDv300.exe.config" files into "Modules\bin\EDD"
-##
+# Documentation
+# https://www.magnetforensics.com/resources/encrypted-disk-detector/
+# Create a folder "EDD" within the "Modules\bin" KAPE folder
+# Place "EDDv300.exe", "EDDv300.exe.config" files into "Modules\bin\EDD"

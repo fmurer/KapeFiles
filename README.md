@@ -53,20 +53,16 @@ Please send PRs should you come up with new Targets or Modules for inclusion in 
 
 ## Targets
 
-If you need help with creating Targets, check out [this guide](https://ericzimmerman.github.io/KapeDocs/#!Pages\60-Tips-and-tricks.md#KAPE_Target_Creation). 
+If you need help with creating Targets, check out [this guide](https://ericzimmerman.github.io/KapeDocs/#!Pages\60-Tips-and-tricks.md#KAPE_Target_Creation). Also consult the [Target Guide](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/TargetGuide.guide), [Target Template](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/TargetTemplate.template), [Compound Target Guide](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/CompoundTargetGuide.guide) or [Compound Target Template](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/CompoundTargetTemplate.template) to ensure the Target(s) follow the same format.
 
 ## Modules
+
+If you need help with creating Modules, please consult the [Module Guide](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/ModuleGuide.guide), [Module Template](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/ModuleTemplate.template), [Compound Module Guide](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/CompoundModuleGuide.guide) or [Compound Module Template](https://github.com/EricZimmerman/KapeFiles/blob/master/Modules/CompoundModuleTemplate.template) to ensure the Module(s) follow the same format.
 
 Be sure to point the BinaryUrl property to the download location in Module files!
 
 All other info including requirements, etc. should be documented at the end of the Module in comment blocks.
 
-## NOTE: BEFORE INITIATING A PR, PLEASE ENSURE YOU HAVE DONE THE FOLLOWING:
-
-1. Generated a unique GUID for the Target or Module
-2. Place the file in the appropriate sub-folder in Targets or Modules. Use 'Misc' if a better category does not exist
-3. Verified KAPE parses the Target or Module cleanly via kape.exe --tlist . or kape.exe --mlist . (Check for any reported errors and correct as necessary)
-
-Thanks!!!
+## NOTE: BEFORE INITIATING A PR, PLEASE ENSURE YOU HAVE COMPLETED THE STEPS LISTED WITHIN THE PULL REQUEST TEMPLATE PRIOR TO SUBMISSION!
 
 Eric Zimmerman

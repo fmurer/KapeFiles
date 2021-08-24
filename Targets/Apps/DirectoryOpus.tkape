@@ -1,8 +1,8 @@
 Description: Directory Opus
 Author: Andrew Rathbun
-Version: 1.0
+Version: 1.1
 Id: 31a9022d-bd2e-4031-97c1-046b51bfcc7d
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
     -
         Name: Directory Opus
@@ -51,10 +51,14 @@ Targets:
         Category: Apps
         Path: C:\Users\%user%\AppData\Local\GPSoftware\Directory Opus\Thumbnail Cache\
         Comment: "Locates .osd file which contains file paths related to the location of the backup settings files for Directory Opus."
+    -
+        Name: Directory Opus
+        Category: Apps
+        Path: C:\Users\%user%\AppData\Roaming\GPSoftware\Directory Opus\Logs\
+        Comment: "Locates .txt files that will be named with the IP address of the FTP server Directory Opus was used to connect to. All-activity.txt will simply be a combination of all other .txt files present in this directory."
 
-######
+# Documentation
 # Directory Opus is the best Windows File Explorer replacement on the market, in my humble opinion.
-# Thankfully, lots of data is stored on user activity if your suspect ends up using this as their daily driver. 
+# Thankfully, lots of data is stored on user activity if your suspect ends up using this as their daily driver.
 # Any of the .osd files can be viewed in your favorite text editor.
 # The Thumbnail Cache folder will dump all files which appear to be randomized filenames with a .db extension.
-######

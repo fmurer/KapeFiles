@@ -1,14 +1,13 @@
-Description: SANS Triage Collection.  
-# No Compound Targets used in this target.  That is intended to make this target 
-# "self documenting" for the SANS 500 Students.
-
+Description: SANS Triage Collection.
 Author: Mark Hallman
 Version: 1.1
 Id: 5dbe9218-fd3d-4d86-88aa-56001d38e7f5
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
 
-# Event Logs
+    # No Compound Targets used in this target.  That is intended to make this target "self documenting" for the SANS FOR500 Students.
+
+    # Event Logs - .\Targets\Windows\EventLogs.tkape
     -
         Name: Event logs XP
         Category: EventLogs
@@ -25,7 +24,7 @@ Targets:
         Path: C:\Windows.old\Windows\System32\winevt\logs\
         FileMask: '*.evtx'
 
-# Evidence of Execution
+        # Evidence of Execution - .\Targets\Compound\EvidenceOfExecution.tkape and .\Targets\Logs\PowerShellConsole.tkape
     -
         Name: Prefetch
         Category: Prefetch
@@ -82,71 +81,71 @@ Targets:
         Path: C:\Users\%user%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\
         FileMask: ConsoleHost_history.txt
 
-# File System    
+        # File System - .\Targets\Compound\FileSystem.tkape
     -
         Name: $MFT
         Category: FileSystem
         Path: C:\
         FileMask: $MFT
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
     -
         Name: $LogFile
         Category: FileSystem
         Path: C:\
         FileMask: $LogFile
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
     -
         Name: $J
         Category: FileSystem
         Path: C:\$Extend\
         FileMask: $UsnJrnl:$J
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
         SaveAsFileName: $J
     -
         Name: $Max
         Category: FileSystem
         Path: C:\$Extend\
         FileMask: $UsnJrnl:$Max
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
         SaveAsFileName: $Max
     -
         Name: $SDS
         Category: FileSystem
         Path: C:\
         FileMask: $Secure:$SDS
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
         SaveAsFileName: $Secure_$SDS
     -
         Name: $Boot
         Category: FileSystem
         Path: C:\
         FileMask: $Boot
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
     -
         Name: $T
         Category: FileSystem
         Path: C:\$Extend\$RmMetadata\$TxfLog\
         FileMask: $Tops:$T
-        AlwaysAddToQueue: True
+        AlwaysAddToQueue: true
         SaveAsFileName: $T
 
-# LNK Files and JumpLists        
+        # LNK Files and JumpLists - .\Targets\Windows\LNKFilesAndJumpLists.tkape
     -
         Name: LNK files from Recent
         Category: LNKFiles
         Path: C:\Users\%user%\AppData\Roaming\Microsoft\Windows\Recent\
-        Recursive: True
+        Recursive: true
         Comment: Also includes automatic and custom jumplist directories
     -
         Name: LNK files from Microsoft Office Recent
         Category: LNKFiles
         Path: C:\Users\%user%\AppData\Roaming\Microsoft\Office\Recent\
-        Recursive: True
+        Recursive: true
     -
         Name: LNK files from Recent (XP)
         Category: LNKFiles
         Path: C:\Documents and Settings\%user%\Recent\
-        Recursive: True
+        Recursive: true
     -
         Name: Desktop LNK files XP
         Category: LNKFiles
@@ -163,19 +162,33 @@ Targets:
         Path: C:\System Volume Information\_restore*\RP*\
         FileMask: '*.LNK'
 
-# Recycle Bin and Recycler 
+        # Recycle Bin and Recycler - .\Targets\Windows\RecycleBin_DataFiles.tkape and .\Targets\Windows\RecycleBin_InfoFiles.tkape
     -
-        Name: $Recycle.Bin
-        Category: Deleted Files
+        Name: Recycle Bin - Windows Vista+
+        Category: FileDeletion
         Path: C:\$Recycle.Bin\
-        Recursive: True
+        FileMask: '$R*.*'
+        Recursive: true
     -
-        Name: RECYCLER WinXP
-        Category: Deleted Files
-        Path: C:\RECYCLER\
-        Recursive: True
+        Name: RECYCLER - WinXP
+        Category: FileDeletion
+        Path: C:\RECYCLE*\
+        FileMask: 'D*.*'
+        Recursive: true
+    -
+        Name: Recycle Bin - Windows Vista+
+        Category: FileDeletion
+        Path: C:\$Recycle.Bin\
+        FileMask: '$I*.*'
+        Recursive: true
+    -
+        Name: RECYCLER - WinXP
+        Category: FileDeletion
+        Path: C:\RECYCLE*\
+        FileMask: 'INFO2'
+        Recursive: true
 
-# System Registry Files
+        # System Registry Files - .\Targets\Windows\RegistryHivesSystem.tkape
     -
         Name: SAM registry transaction files
         Category: Registry
@@ -382,7 +395,7 @@ Targets:
         Path: C:\System Volume Information\_restore*\RP*\snapshot\
         FileMask: _REGISTRY_*
 
-# User Registry Files
+        # User Registry Files - .\Targets\Windows\RegistryHivesUser.tkape
     -
         Name: NTUSER.DAT registry hive XP
         Category: Registry
@@ -429,9 +442,9 @@ Targets:
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\
         FileMask: UsrClass.dat.LOG*
 
-# System Level Artifacts  
+        # System Level Artifacts
 
-# Scheduled Tasks
+        # Scheduled Tasks - .\Targets\Windows\ScheduledTasks.tkape
     -
         Name: at .job
         Category: Persistence
@@ -456,33 +469,33 @@ Targets:
         Name: XML
         Category: Persistence
         Path: C:\Windows\System32\Tasks\
-        Recursive: True
+        Recursive: true
     -
         Name: XML
         Category: Persistence
         Path: C:\Windows.old\Windows\System32\Tasks\
-        Recursive: True
+        Recursive: true
 
-# System Resource Usage Monitor
+        # System Resource Usage Monitor - .\Targets\Windows\SRUM.tkape
     -
         Name: SRUM
         Category: Execution
         Path: C:\Windows\System32\SRU\
-        Recursive: True
+        Recursive: true
     -
         Name: SRUM
         Category: Execution
         Path: C:\Windows.old\Windows\System32\SRU\
-        Recursive: True
+        Recursive: true
 
-# Thumbcache.db
+        # Thumbcache.db - .\Targets\Windows\ThumbCache.tkape
     -
         Name: Thumbcache DB
         Category: FileKnowledge
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\Explorer\
         FileMask: thumbcache_*.db
 
-# USB Devices Logs
+        # USB Devices Logs - .\Targets\Windows\USBDevicesLogs.tkape
     -
         Name: Setupapi.log XP
         Category: USBDevices
@@ -507,16 +520,16 @@ Targets:
         Name: WBEM
         Category: WBEM
         Path: C:\Windows\System32\wbem\Repository\
-        Recursive: True
+        Recursive: true
     -
         Name: WBEM
         Category: WBEM
         Path: C:\Windows.old\Windows\System32\wbem\Repository\
-        Recursive: True
+        Recursive: true
 
-# User Communication         
+        # User Communication
 
-# Outlook PST and OST files
+        # Outlook PST and OST files - .\Targets\Apps\OutlookPSTOST.tkape
     -
         Name: PST XP
         Category: Communications
@@ -537,8 +550,8 @@ Targets:
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Outlook\
         FileMask: '*.ost'
-            
-# Skype
+
+        # Skype - .\Targets\Apps\Skype.tkape
     -
         Name: main.db (App <v12)
         Category: Communications
@@ -570,7 +583,7 @@ Targets:
         Path: C:\Users\%user%\AppData\Roaming\Microsoft\Skype for Desktop\IndexedDB\*.leveldb\
         FileMask: '*.log'
 
-# Web Browser Artifacts        
+        # Web Browser Artifacts - .\Targets\Compound\WebBrowsers.tkape
     -
         Name: Chrome bookmarks XP
         Category: Communications
@@ -705,17 +718,17 @@ Targets:
         Name: Chrome Extension Files
         Category: Communication
         Path: C:\Users\%user%\AppData\Local\Google\Chrome\User Data\*\Extensions\
-        Recursive: True
+        Recursive: true
     -
-        Name: Chrome Extension Files XP 
+        Name: Chrome Extension Files XP
         Category: Communications
         Path: C:\Documents and Settings\%user%\Local Settings\Application Data\Google\Chrome\User Data\*\Extensions\
-        Recursive: True
+        Recursive: true
     -
         Name: Edge folder
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\
-        Recursive: True
+        Recursive: true
     -
         Name: WebcacheV01.dat
         Category: Communications
@@ -771,7 +784,7 @@ Targets:
         Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
         FileMask: places.sqlite*
     -
-        Name: Firefox Downloads (XP)    
+        Name: Firefox Downloads (XP)
         Category: Communications (XP)
         Path: C:\Documents and Settings\%user%\Application Data\Mozilla\Firefox\Profiles\*\
         FileMask: downloads.sqlite*
@@ -849,32 +862,32 @@ Targets:
         Name: Local Internet Explorer folder
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Internet Explorer\
-        Recursive: True
+        Recursive: true
     -
         Name: Roaming Internet Explorer folder
         Category: Communications
         Path: C:\Users\%user%\AppData\Roaming\Microsoft\Internet Explorer\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 9/10 History
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\History\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 9/10 Cache
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\Temporary Internet Files\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 9/10 Cookies
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\Cookies\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 9/10 Download History
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\IEDownloadHistory\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 11 Metadata
         Category: Communications
@@ -883,14 +896,14 @@ Targets:
         Name: IE 11 Cache
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\INetCache\
-        Recursive: True
+        Recursive: true
     -
         Name: IE 11 Cookies
         Category: Communications
         Path: C:\Users\%user%\AppData\Local\Microsoft\Windows\INetCookies\
-        Recursive: True
-  
-# Windows Timeline
+        Recursive: true
+
+        # Windows Timeline - .\Targets\Windows\WindowsTimeline.tkape
     -
         Name: ActivitiesCache.db
         Category: FileFolderAccess

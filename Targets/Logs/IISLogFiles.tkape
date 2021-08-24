@@ -2,7 +2,7 @@ Description: IIS Log Files
 Author: Troy Larson
 Version: 2.0
 Id: 701573f6-0ce1-454d-af41-612713e22af5
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
     -
         Name: IIS log files
@@ -27,5 +27,8 @@ Targets:
     -
         Name: IIS log files
         Category: Logs
-        Path: C:\Resources\directory\* \LogFiles\Web\W3SVC*\
+        Path: C:\Resources\Directory\*\LogFiles\Web\W3SVC*\
         FileMask: '*.log'
+
+# Documentation
+# https://www.sumologic.com/blog/iis-log-files-location/

@@ -2,7 +2,7 @@ Description: Event logs
 Author: Eric Zimmerman
 Version: 1.0
 Id: d95784d9-bd1c-472b-aeef-de5d9ecc7aaa
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
     -
         Name: Event logs XP
@@ -19,3 +19,6 @@ Targets:
         Category: EventLogs
         Path: C:\Windows.old\Windows\System32\winevt\logs\
         FileMask: '*.evtx'
+
+# Documentation
+# https://www.youtube.com/watch?v=qjeA1a5n0LQ

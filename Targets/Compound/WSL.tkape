@@ -2,7 +2,7 @@ Description: All Windows Subsystem for Linux targets
 Author: Matt Dawson
 Version: 1.0
 Id: 6f1d49c3-e558-4d59-bf33-5ce8bb611102
-RecreateDirectories: True
+RecreateDirectories: true
 Targets:
     -
         Name: Debian
@@ -24,3 +24,6 @@ Targets:
         Name: SUSE Linux Enterprise Server
         Category: WSL
         Path: SUSELinuxEnterpriseServer.tkape
+
+# Documentation
+# N/A
